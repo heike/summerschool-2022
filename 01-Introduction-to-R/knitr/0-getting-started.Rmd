@@ -1,14 +1,14 @@
 ---
 title: "Programming with Data in R"
 subtitle: "Midwest Big Data Summer School"
-author: "Heike Hofmann (hofmann@iastate.edu, @heike_hh), Andrew Maloney"
+author: "Heike Hofmann (hofmann@iastate.edu, @heike_hh)"
 date: "`r Sys.Date()`"
 output:
   ioslides_presentation:
     transition: default
     widescreen: true
 css:
-  styles.css
+  ../styles.css
 ---
 
 ```{r setup, include = FALSE}
@@ -27,10 +27,6 @@ knitr::opts_chunk$set(
 <img src="images/Hello-Heike.png" width="50%" />
 
 
-##
-
-<img src="images/Hello-Andy.png" width="50%" />
-
 
 
 ## Programming with Data in R
@@ -38,14 +34,14 @@ knitr::opts_chunk$set(
 
 
 
-1:00 - 2:20 
+1:30 - 2:50 
 - Setup: Installation of R and RStudio
 
 - First Example
 
 - Some R basics
 
-2:30 - 4:00
+3:00 - 4:30
 
 - the tidy verse
 
@@ -91,7 +87,7 @@ num_pkgs <- nrow(pkgs)
 
 We will touch on all of these aspects.
 Slides and material are available at
- http://heike.github.io/summerschool-2021
+ http://heike.github.io/summerschool-2022
 
 
 ## Installing R
@@ -106,7 +102,7 @@ Slides and material are available at
 
 ## Installing RStudio
 
-- RStudio 1.4.xxx supports both R and python 
+- RStudio-2022  supports both R and python (Jupyter notebooks)
 
 - Browse to [https://www.rstudio.com/](https://www.rstudio.com/)
 - Mouse over Products and click RStudio
@@ -154,7 +150,7 @@ Slides and material are available at
 
 ## Following along
 
-- Go to github [https://github.com/heike/summerschool-2021](https://github.com/heike/summerschool-2021) for all materials. 
+- Go to github [https://github.com/heike/summerschool-2022](https://github.com/heike/summerschool-2022) for all materials. 
 
 <img src="images/github-download.png" alt="Download files from github" width="700">
 
@@ -187,7 +183,7 @@ Slides and material are available at
 * File -> New File -> R Markdown -> OK -> Knit HTML
 
 <div align="center">
-  <img src="rmarkdown.png" height="600" width="1000">
+  <img src="images/Rmarkdown-hello.png" height="600" width="1000">
 </div>
 
 ## What is R Markdown?
