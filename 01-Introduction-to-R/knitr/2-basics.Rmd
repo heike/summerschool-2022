@@ -8,7 +8,7 @@ output:
     transition: default
     widescreen: true
 css:
-  styles.css
+  ../styles.css
 ---
 
 
@@ -18,7 +18,7 @@ css:
 - Follow along (copy & paste the code into the console):
 ```{r, eval = FALSE}
 curl::curl_download(
-  "https://raw.githubusercontent.com/heike/summerschool-2018/master/01-Introduction-to-R/code/2-basics.R",
+  "https://raw.githubusercontent.com/heike/summerschool-2022/master/01-Introduction-to-R/code/2-basics.R",
   "2-basics.R"
 )
 file.edit("2-basics.R")
@@ -67,14 +67,14 @@ file.edit("2-basics.R")
     
 ## Creating Objects
 
-We can create an object using the assignment operator `<-`
+We create an object using the assignment operator `<-`
 
 ```{r}
 x <- 5
 y <- 21
 ```
 
-We can then perform any functions on these objects:
+We  then perform any operations on these objects:
 
 ```{r}
 log(x)
@@ -96,7 +96,7 @@ __Pro-tip:__ before introducing a new object, type it in the console to check th
 
 ## Vectors
 
-A variable usually consists of more than a single value. We can create a **vector** using the `c` (combine) function:
+A variable usually consists of more than a single value. We  create a **vector** using the `c` (combine) function:
 
 ```{r}
 y <- c(1, 5, 3, 2)
@@ -126,21 +126,23 @@ Googling for help is a bit hard. Searches of the form  R + CRAN + <your query> u
 
 ## R Reference Card
 
-We will pass you out a copy, but you can download the reference card from:
+Download the reference card from:
 
 http://cran.r-project.org/doc/contrib/Short-refcard.pdf
 
 Having this open or printed off and near you while working is helpful.
 
-## Your Turn {data-background=#2a374c}
+## Your Turn {data-background=#fff1c5}
 
 Using the R Reference Card at https://cran.r-project.org/doc/contrib/Short-refcard.pdf
  (and the Help pages, if needed), do the following:
 
 1. Find out how many rows and columns the `iris' data set has.  Figure out at least 2 ways to do this.
+
 *Hint: "Variable Information" section on the first page of the reference card!*
 
 2. Use the `rep` function to construct the following vector:  1 1 2 2 3 3 4 4 5 5
+
 *Hint: "Data Creation" section of the reference card*
 
 Give this vector the name `x`
@@ -156,7 +158,7 @@ Give this vector the name `x`
 - We can access different columns using the `$` operator.
 
 ```{r}
-penguins <- read.csv("https://raw.githubusercontent.com/heike/summerschool-2021/main/01-Introduction-to-R/data/penguins.csv", stringsAsFactors = TRUE)
+penguins <- read.csv("https://raw.githubusercontent.com/heike/summerschool-2022/main/01-Introduction-to-R/data/penguins.csv", stringsAsFactors = TRUE)
 
 species <- penguins$species
 bill_length <- penguins$bill_length_mm
@@ -220,30 +222,29 @@ short_bills <- bill_length < 35
 species[short_bills]
 ```
 
-## Your Turn {data-background=#2a374c}
+## Your Turn {data-background=#fff1c5}
+
+Read up on the [tips data](http://ggobi.org/book/chap-data.pdf).
 
 ```{r, eval = FALSE}
-tips <- read.csv("https://raw.githubusercontent.com/heike/summerschool-2021/master/01-Introduction-to-R/data/tips.csv")
+tips <- read.csv("https://raw.githubusercontent.com/heike/summerschool-2022/master/01-Introduction-to-R/data/tips.csv")
 ```
 
 The `tips` data set consists of 244 parties being served at a restaurant.
 
-1. Calculate the rate that each party tipped, i.e. fill the blanks in the statement: `tips$rate <- ___ / ___ * 100`
+1. Calculate the rate that each party tipped (in percent), i.e. fill the blanks in the statement: `tips$tip_pct <- ___ / ___ * 100`
 
 
 2. Find out how many people tipped over 20%.
 
 *Hint: if you use the `sum` function on a logical vector, it'll return how many TRUEs are in the vector:*
-```{r}
-sum(c(TRUE, TRUE, FALSE, TRUE, FALSE))
-```
 
 3. **More Challenging**: Calculate the sum of the total bills of anyone who tipped over 20%
 
 
 ## Data Types in R
 
-- Can use `mode` or `class` to find out information about variables
+- Use `mode` or `class` to find out information about variables
 - `str` is useful to find information about the structure of your data
 - Many data types: numeric, integer, character, Date, and factor most common
     
@@ -300,10 +301,10 @@ id <- (bill_length <35  & penguins$sex == "male")
 penguins[id,]
 ```
 
-## Your Turn 
+## Your Turn {data-background=#fff1c5}
 
 1. Read up on the dataset `diamonds` (`?diamonds`) in the `ggplot2` package
-2. Plot price by carat (use `qplot` - go back to the motivating example for help with the syntax)
+2. Plot price by carat (go back to the motivating example for help with the syntax)
 3. Create a variable `ppc` for price per carat. Store this variable as a column in the diamonds data
-4. Make a histogram of all ppc values that exceed $10000 per carat.
+4. Make a histogram of all `ppc` values that exceed $10000 per carat.
 5. Explore any other interesting relationships you find

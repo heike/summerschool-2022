@@ -1,15 +1,17 @@
 ---
 title: "Objects and Data structures in R"
 subtitle: "Midwest Big Data Summer School"
-author: "Heike Hofmann (hofmann@iastate.edu, @heike_hh), Ganesh Krishnan"
+author: "Heike Hofmann (hofmann@iastate.edu, @heike_hh)"
 date: "`r Sys.Date()`"
 output:
   ioslides_presentation:
     transition: default
     widescreen: true
 css:
-  styles.css
+  ../styles.css
 ---
+
+
 
 
 ## Data Frames
@@ -24,7 +26,7 @@ css:
 - Follow along (copy & paste the code into the console):
 ```{r, eval = FALSE}
 curl::curl_download(
-  "https://raw.githubusercontent.com/heike/summerschool-2021/master/01-Introduction-to-R/code/3-r-objects.R",
+  "https://raw.githubusercontent.com/heike/summerschool-2022/master/01-Introduction-to-R/code/3-r-objects.R",
   "3-r-objects.R"
 )
 file.edit("3-r-objects.R")
@@ -47,7 +49,7 @@ file.edit("3-r-objects.R")
 
 This is what we did before in the tips data set:
 ```{r, echo=FALSE}
-tips <- read.csv("https://raw.githubusercontent.com/heike/summerschool-2018/master/01-Introduction-to-R/data/tips.csv")
+tips <- read.csv("https://raw.githubusercontent.com/heike/summerschool-2022/master/01-Introduction-to-R/data/tips.csv")
 ```
 
 ```{r}
@@ -121,7 +123,7 @@ names(dframe)[1] <- "Reps"
 dframe
 ```
 
-## Your Turn {data-background=#2a374c}
+## Your Turn {data-background=#fff1c5}
 
 1. Make a data frame with column 1: 1,2,3,4,5,6 and column 2: a,b,a,b,a,b
 2. Select only rows with value "a" in column 2 using a logical vector
@@ -151,7 +153,7 @@ What's its structure?
 str(iris)
 ```
 
-## Your Turn {data-background=#2a374c}
+## Your Turn {data-background=#fff1c5}
 
 1. View the top 8 rows of mtcars data
 2. What type of object is the mtcars data set?
@@ -211,6 +213,7 @@ We often need to import in our own data rather than just using built-in datasets
 ```{r}
 write.csv(iris, "iris.csv", row.names=FALSE)
 ```
+
 ## Exporting Data and Objects
 
 - Similarly to importing, exporting is supported using functions:
@@ -228,7 +231,7 @@ load("iris-data.rda") # and now it is back!
 ```
 
 
-## Your Turn {data-background=#2a374c}
+## Your Turn {data-background=#fff1c5}
 
 - Write the iris data set into a csv file on your machine. Check where it appears. For a challenge try to change the location. 
 - Export the `tout` object using the function `save`. Delete `tout` from your working environment by running `rm(tout)`. 

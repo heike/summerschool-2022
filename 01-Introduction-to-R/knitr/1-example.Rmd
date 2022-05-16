@@ -1,14 +1,14 @@
 ---
 title: "First Look"
 subtitle: "Midwest Big Data Summer School"
-author: "Heike Hofmann (hofmann@iastate.edu, @heike_hh), Andrew Maloney"
+author: "Heike Hofmann (hofmann@iastate.edu, @heike_hh)"
 date: "`r Sys.Date()`"
 output:
   ioslides_presentation:
     transition: default
     widescreen: true
 css:
-  styles.css
+  ../styles.css
 ---
 
 ## Motivating Example
@@ -41,7 +41,7 @@ knitr::opts_chunk(warning = FALSE)
 Copy & paste the code into the console:
 ```{r, eval = FALSE}
 curl::curl_download(
-  "https://raw.githubusercontent.com/heike/summerschool-2021/master/01-Introduction-to-R/code/1-example.R",
+  "https://raw.githubusercontent.com/heike/summerschool-2022/master/01-Introduction-to-R/code/1-example.R",
   "1-example.R"
 )
 file.edit("1-example.R")
@@ -53,7 +53,7 @@ file.edit("1-example.R")
 Lets use R to look at the top few rows of the data set. First, we load the penguins data  `read.csv`:
 
 ```{r}
-penguins <- read.csv("https://raw.githubusercontent.com/heike/summerschool-2021/main/01-Introduction-to-R/data/penguins.csv", stringsAsFactors = TRUE)
+penguins <- read.csv("https://raw.githubusercontent.com/heike/summerschool-2022/main/01-Introduction-to-R/data/penguins.csv", stringsAsFactors = TRUE)
 ```
 
 Now, we use the `head` function to look at the first 6 rows of the data:
@@ -160,6 +160,7 @@ Lets look distribution of body mass with a histogram
 penguins %>% 
   ggplot(aes(x = body_mass_g)) + geom_histogram(binwidth = 100)
 ```
+
 ## Back to trying to determine sex of penguins
 
 Lets look distribution of body mass with a histogram colored by sex
@@ -210,7 +211,7 @@ There is a difference but is it statistically significant?
 t.test(body_mass_g ~ sex, data = gentoo)
 ```
 
-## Your Turn {data-background=#2a374c}
+## Your Turn {data-background=#fff1c5}
 
 Try playing with chunks of code from this session to further investigate the penguins data:
 

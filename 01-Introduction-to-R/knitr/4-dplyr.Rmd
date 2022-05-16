@@ -1,57 +1,59 @@
 ---
 title: "Intro to the tidyverse"
-author: "Heike Hofmann"
+subtitle: "Midwest Big Data Summer School"
+author: "Heike Hofmann (hofmann@iastate.edu, @heike_hh)"
+date: "`r Sys.Date()`"
 output:
-  xaringan::moon_reader:
-    lib_dir: libs
-    nature:
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
+  ioslides_presentation:
+    transition: default
+    widescreen: true
+css:
+  ../styles.css
 ---
 
-# Data management in R: the tidyverse 
+## Data management in R: the tidyverse 
 
 <img src="images/tidyverse.jpeg" alt="" width=500>
 
 
----
+## Outline
 
-# Outline
+- elements of data management: 
 
-- elements of data management: filtering, sorting, and aggregations
+    - filtering, 
+    - sorting, and 
+    - aggregations
 
 
 - lots of examples
 
----
 
-# `tidyverse`
-
+  
+## `tidyverse`
+  
 `tidyverse` is a package bundling several other R packages:
-
+  
 - `ggplot2`, `dplyr`, `tidyr`, `purrr`, ...
 
 - share common data representations and API, i.e. work well together
 
 - from the [tidyverse manifesto](https://tidyverse.tidyverse.org/articles/manifesto.html):
   
-    1. Reuse existing data structures.
-    
-    2. Compose simple functions with the pipe.
-    
-    3. Embrace functional programming.
-    
-    4. Design for humans.
+1. Reuse existing data structures.
+
+2. Compose simple functions with the pipe.
+
+3. Embrace functional programming.
+
+4. Design for humans.
 
 - see https://github.com/hadley/tidyverse for more information
 
----
 
-# `dplyr` 
-
+## `dplyr` 
+  
 There are a couple of primary `dplyr` *verbs*, representing distinct data analysis tasks:
-
+  
 - `filter`: Select specified rows of a data frame, produce subsets
 
 - `mutate`: Add new or change existing columns of the data frame (as functions of existing columns)
@@ -64,14 +66,14 @@ There are a couple of primary `dplyr` *verbs*, representing distinct data analys
 
 - `group_by`: Introduce structure to a data frame
 
----
 
-# Common structure
-
+  
+## Common structure
+  
 all functions of the tidyverse have `data` as their first element
 
 Important: do not use `$` notation for variables within these functions, e.g: 
-
+  
 ```
 ggplot(data = fbi, aes(x = Year, y = Count)) + 
   geom_point()
@@ -82,33 +84,28 @@ ggplot(data = fbi, aes(x = Year, y = Count)) +
 filter(fbi, Year >= 2017, State == "Iowa")
 ```
 
+## `filter` {.columns-2 .smaller}
+  
 
----
-
-# `filter`
-
-.pull-left[
 select a subset of the observations (horizontal selection):
-
+      
 `filter (.data, ...)` 
-
+    
 specify constraints (as logical expression) to data in `...` 
-
+    
 all constraints are combined by logical and `&`
-]
 
-.pull-right[
+Make sure to always call `library(dplyr)` before using `filter`
+
+<br>
+
 ![](images/filter.png)
-]
 
-.footnote[Make sure to always call `library(dplyr)` before using `filter`]
 
----
-
-# `filter` Example
-
+## `filter` Example
+  
 From the `fbi` data, extract all burglaries in 2016:
-
+  
 ```{r, message=FALSE}
 library(classdata)
 library(dplyr)
@@ -116,43 +113,33 @@ library(dplyr)
 fbi %>% filter(Type=="Burglary", Year==2016) %>% head()
 ```
 
----
-
-# `mutate`
-
-.pull-left[
-
+## `mutate` {.columns-2 .smaller}
 
 `mutate (.data, ...)` 
-
+    
 Introduce new variables into the data set or transform/update  old variables
-
+    
 multiple variables can be changed/introduced
-
+    
 `mutate` works sequentially:
-variables introduced become available in following changes
-]
+      variables introduced become available in following changes
 
-.pull-right[
+<br>
+
 ![](images/mutate.png)
-]
 
 
----
-
-# `mutate` Example
-
+## `mutate` Example
+  
 Introduce a variable `Rate` into the `fbi` data:
-
+  
 ```{r}
 fbi %>% mutate(Rate = Count/Population*70000) %>% head()
 ```
 
 
----
-
-# `arrange`
-
+## `arrange`
+  
 `arrange` sorts a data set by the values in one or more variables
 
 Successive variables break ties in previous ones
@@ -163,32 +150,27 @@ Successive variables break ties in previous ones
 fbi %>% arrange(desc(Year), Type, desc(Count)) %>% head()
 ```
 
----
 
-# `select`
-
-.pull-left[
+## `select` {.columns-2 .smaller}
+  
 Select specific variables of a data frame (vertical selection):
-
-
+      
+      
 `select (.data, ...)` 
-
+    
 specify all variables you want to keep
-
+    
 Variables can be selected by index, e.g. `1:5`, by name (don't use quotes), or using a selector function, such as 
 `starts_with`
 
 Negative selection also works, e.g. `-1` (not the first variable)
-]
 
-.pull-right[
+<br>
+
 ![](images/select.png)
-]
 
 
----
-
-# `select` Example
+## `select` Example
 
 
 Select `Type, Count, State`, and `Year` from the `fbi` data:
@@ -198,19 +180,14 @@ fbi %>% arrange(desc(Year), Type, desc(Count)) %>%
   select(Type, Count, State, Year) %>% head()
 ```
 
----
-class: inverse
-# Your turn
+## Your turn {data-background=#fff1c5}
 
 Use the `fbiwide` data set from the `classdata` package
 
 Write out at least three different ways of selecting all variables describing incidences of different types of crimes
 
----
 
-# `summarize`
-
-.pull-left[
+## `summarize` {.columns-2 .smaller}
 
 
 `summarize (.data, ...)` 
@@ -219,16 +196,12 @@ summarize observations into a (set of) one-number statistic(s):
 
 Creates a new dataset with 1 row and one column for each of the summary statistics
 
-]
-
-.pull-right[
+<br>
+  
 ![](images/summarize.png)
-]
 
 
----
-
-# `summarise` Example
+## `summarise` Example
 
 Calculate the mean and standard deviation of Crime rates in the `fbi` data
 
@@ -238,12 +211,8 @@ fbi %>%
               sd_rate = sd(Count/Population*70000, na.rm = TRUE))
 ```
 
----
 
-# `summarize` and `group_by`
-
-.pull-left[
-
+## `summarize` and `group_by` {.columns-2 .smaller}
 
 Power combo! 
 ![](images/kapow.png)
@@ -252,16 +221,12 @@ for each combination of group levels, create one row of a (set of) one-number st
 
 The new dataset has  one column for each of the summary statistics, and one row for each combination of grouping levels (multiplicative)
 
-]
+<br>
 
-.pull-right[
 ![](images/summarize-groupby.png)
-]
 
 
----
-
-# `summarise` and `group_by`
+## `summarise` and `group_by`
 
 For each type of crime, calculate average crime rate and standard deviation.
 
@@ -272,8 +237,4 @@ fbi %>%
               sd_rate = sd(Count/Population*70000, na.rm = TRUE))
 ```
 
----
-class: inverse, center, middle
 # Let's use these tools
-
-
