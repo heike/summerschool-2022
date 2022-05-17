@@ -11,8 +11,8 @@ There are two ways you can follow along with the materials:
 -   **hands-on** (alternative):
     -   in case you are experiences problems with the installation, you can make use of the [RStudio cloud server](https://rstudio.cloud/spaces/66686/project/2558446?idle=1621215820362).
 -   **relaxed approach**: follow along the slides: 
-        - slides for [programming with data](https://heike.github.io/summerschool-2022/01-Introduction-to-R/)
-        - slides for [visualizing data in R](https://heike.github.io/summerschool-2022/02-graphics/)
+    -   slides for [programming with data](https://heike.github.io/summerschool-2022/01-Introduction-to-R/)
+    -   slides for [visualizing data in R](https://heike.github.io/summerschool-2022/02-graphics/)
 
 
 ## Installation instructions
