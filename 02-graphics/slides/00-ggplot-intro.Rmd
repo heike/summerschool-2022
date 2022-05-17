@@ -1,6 +1,6 @@
 ---
 title: "Graphical Insights from Data: <br/>Motivation and Introduction"
-author: "Heike Hofmann & Susan Vanderplas"
+author: "Heike Hofmann"
 output:
   xaringan::moon_reader:
     css: ["xaringan-themer.css"]
@@ -11,15 +11,15 @@ output:
       countIncrementalSlides: false
 ---
 
-```{r setup, include = F}
+```{r setup, include = FALSE, cache=FALSE}
 library(tidyverse)
 library(ggplot2)
 library(dplyr)
 library(tidyr)
 library(gridExtra)
-library(ggradar)
+library(ggradar) # remotes::install_github("ricardo-bion/ggradar")
 library(ggmosaic)
-library(geomnet)
+library(geomnet) # remotes::install_github("sctyner/geomnet")
 library(ggsci)
 ```
 
@@ -130,18 +130,19 @@ df.team_data$performance <- rnorm(nrow(df.team_data))
 i5 <-ggplot(data = df.team_data, aes(x = metrics, y = teams)) +
   geom_tile(aes(fill = performance)) + scale_fill_distiller(palette = "Greys")+ theme(legend.position = "none") + labs(x="", y="", title="Heat Map")
 grid.arrange(i2, i3, i4, i5, ncol = 4, nrow = 1)
-
-a1 <- ggplot(diamonds, aes(depth)) +
-    geom_density(aes(fill = cut), alpha = .8) +
-    xlim(55, 70) + labs(x="", y="", title="Density Plot")+scale_colour_grey(start=0.6, end= 0.9)+scale_fill_grey(start=0.6, end= 0.9) + theme(legend.position = "none")
-a2 <- ggplot(diamonds, aes(cut, price)) + geom_violin(aes(fill = cut), alpha = .8) + labs(x="", y="", title="Violin Plot")+scale_fill_grey(start=0.6, end= 0.9) + theme(legend.position = "none")
-
-data(blood)
-a3 <- ggplot(data = blood$edges, aes(from_id = from, to_id = to)) +
-  geom_net(vertices=blood$vertices, aes(colour=..type..)) + 
-  theme_net() +scale_colour_grey(start=0.4, end= 0.9)+ theme(legend.position = "none") + labs(x="", y="", title="Network Plot")
-grid.arrange(a1, a2, a3, ncol = 3, nrow = 1)
+# 
+# a1 <- ggplot(diamonds, aes(depth)) +
+#     geom_density(aes(fill = cut), alpha = .8) +
+#     xlim(55, 70) + labs(x="", y="", title="Density Plot")+scale_colour_grey(start=0.6, end= 0.9)+scale_fill_grey(start=0.6, end= 0.9) + theme(legend.position = "none")
+# a2 <- ggplot(diamonds, aes(cut, price)) + geom_violin(aes(fill = cut), alpha = .8) + labs(x="", y="", title="Violin Plot")+scale_fill_grey(start=0.6, end= 0.9) + theme(legend.position = "none")
+# 
+# data(blood)
+# a3 <- ggplot(data = blood$edges, aes(from_id = from, to_id = to)) +
+#   geom_net(vertices=blood$vertices, aes(colour=..type..)) + 
+#   theme_net() +scale_colour_grey(start=0.4, end= 0.9)+ theme(legend.position = "none") + labs(x="", y="", title="Network Plot")
+# grid.arrange(a1, a2, a3, ncol = 3, nrow = 1)
 ```
+![](00-ggplot-intro_files/figure-html/adv-1.png)
 
 ---
 ## `ggplot2`: Grammar of Graphics in R

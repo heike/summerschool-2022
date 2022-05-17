@@ -1,6 +1,6 @@
 ---
 title: "Graphical Insights from Data: <br/>Basics"
-author: "Heike Hofmann & Susan Vanderplas"
+author: "Heike Hofmann "
 output:
   xaringan::moon_reader:
     css: ["xaringan-themer.css"]
@@ -26,8 +26,6 @@ knitr::opts_chunk$set(
 	warning = FALSE
 )
 ```
-
----
 class: center, middle, inverse
 
 # Data Types, Formats, and Structures
@@ -154,9 +152,6 @@ ggplot2 assumes your data is tidy.
 - Tidyr Vignette: [pivoting](https://tidyr.tidyverse.org/articles/pivot.html)
 - Longer explanation and tutorial: [Pivoting data in R (and SAS)](https://srvanderplas.github.io/unl-stat850/transforming-data.html#pivot-operations)
 
-Longer | Wider
---- | ---
-![Pivot Longer Operation](https://srvanderplas.github.io/unl-stat850/image/tidyr_pivot_longer.png) | ![Pivot Wider Operation](https://srvanderplas.github.io/unl-stat850/image/tidyr_pivot_wider.png)
 
 ???
 
@@ -408,7 +403,7 @@ grid.arrange(r1, r2, r3, r5, r4, r7, r8, nrow = 2)
 
 ---
 
-## ggplot2 extenstions
+## ggplot2 extensions
 
 - https://exts.ggplot2.tidyverse.org/
 

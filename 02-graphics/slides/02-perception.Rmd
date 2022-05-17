@@ -1,6 +1,6 @@
 ---
 title: "Graphical Insights from Data: <br/>Perception"
-author: "Heike Hofmann & Susan Vanderplas"
+author: "Heike Hofmann"
 output:
   xaringan::moon_reader:
     css: ["xaringan-themer.css"]
@@ -628,19 +628,19 @@ data(diamonds)
 - Find a graphic that gives an overview of these four variables while respecting their types
 
 
----
-class: inverse
-## Your Turn 2
+<!-- --- -->
+<!-- class: inverse -->
+<!-- ## Your Turn 2 -->
 
-The `movies` data set contains information from IMDB.com including ratings, genre, length in minutes, and year of release.
+<!-- The `movies` data set contains information from IMDB.com including ratings, genre, length in minutes, and year of release. -->
 
-```{r, echo = TRUE, purl = T}
-movies <- read.csv("http://heike.github.io/summerschool-2021/02-graphics/data/MovieSummary.csv")
-```
-                   
+<!-- ```{r, echo = TRUE, purl = T} -->
+<!-- movies <- read.csv("http://heike.github.io/summerschool-2021/02-graphics/data/MovieSummary.csv") -->
+<!-- ``` -->
 
-- Explore the differences in length, rating, etc. in movie genres over time
-- Hint: use facetting!
+
+<!-- - Explore the differences in length, rating, etc. in movie genres over time -->
+<!-- - Hint: use facetting! -->
 
 ---
 class:middle,center,inverse
