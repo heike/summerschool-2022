@@ -142,7 +142,7 @@ grid.arrange(i2, i3, i4, i5, ncol = 4, nrow = 1)
 #   theme_net() +scale_colour_grey(start=0.4, end= 0.9)+ theme(legend.position = "none") + labs(x="", y="", title="Network Plot")
 # grid.arrange(a1, a2, a3, ncol = 3, nrow = 1)
 ```
-![](00-ggplot-intro_files/figure-html/adv-1.png)
+![](images/adv-1.png)
 
 ---
 ## `ggplot2`: Grammar of Graphics in R
